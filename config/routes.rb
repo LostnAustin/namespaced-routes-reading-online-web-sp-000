@@ -3,8 +3,9 @@ Rails.application.routes.draw do
     resources :posts, only: %i[show index new edit]
   end
 
-
-  namespace :admin do
+#use 'namespace' instead of 'scope' when wanting a route with a module that uses that module name for URL
+  scope '/admin', module: 'admin' do
+  # namespace :admin do
     resources :stats, only: [:index]
   end
 
